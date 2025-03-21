@@ -1,4 +1,4 @@
-package Serviços;
+package Modulo.Ecommerce.Serviços;
 
 public class VendaProduto {
     int id_produto;

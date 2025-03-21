@@ -1,4 +1,4 @@
-package Entidades;
+package Modulo.Ecommerce.Entidades;
 
 public class Cliente {
     String nome;
