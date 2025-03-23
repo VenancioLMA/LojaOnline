@@ -1,4 +1,5 @@
 package Modulo.Ecommerce.Serviços;
 
-public class Pagamento {
+public class ServicoAfiliado {
+
 }

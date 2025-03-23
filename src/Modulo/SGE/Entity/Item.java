@@ -3,12 +3,16 @@ package Modulo.SGE.Entity;
 import Modulo.SGE.Enum.TamanhoItem;
 
 public class Item {
+
     private int id;
     private int preco;
     private String descricao;
     private TamanhoItem tamanho;
     private int quantidade;
     private Fornecedor fornecedor;
+
+//    private Fornecedor fornecedor;
+
 
     public Item(int id, int preco, String descricao, TamanhoItem tamanho, int quantidade, Fornecedor fornecedor) {
         this.id = id;
@@ -77,4 +81,15 @@ public class Item {
                 ", fornecedor=" + fornecedor +
                 '}';
     }
-}
+
+
+    public void ItemAdicionado(){
+        this.quantidade++;
+        this.preco += this.quantidade;
+
+    }
+
+
+    }
+
+
