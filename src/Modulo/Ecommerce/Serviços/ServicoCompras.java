@@ -24,9 +24,15 @@ public class ServicoCompras {
   public void removerItem(Carrinho carrinho) {
       this.carrinhos.remove(carrinho);
   }
-  public void alterarItem(Carrinho carrinho) {
-
-  }
+    public void alterarItem(Carrinho carrinho) {
+        int index = carrinhos.indexOf(carrinho);
+        if (index != -1) {
+            this.carrinhos.set(index, carrinho);
+            System.out.println("Carrinho atualizado.");
+        } else {
+            System.out.println("Carrinho não encontrado.");
+        }
+    }
 
   public List<ServicoCompras> listAll() {
         return List.of();
@@ -57,6 +63,7 @@ public class ServicoCompras {
     }
 
     private String calcularTotal() {
+        return "";
     }
 }
 
