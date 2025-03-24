@@ -1,8 +1,7 @@
-package Modulo.SGE.Repository;
+package Modulo.SGE.Estoque.Repository;
 
-import Modulo.Commons.Endereco;
-import Modulo.SGE.Entity.Fornecedor;
-import Modulo.SGE.Entity.Item;
+import Modulo.Commons.Interfaces.IRepository;
+import Modulo.SGE.Estoque.Entity.Fornecedor;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;

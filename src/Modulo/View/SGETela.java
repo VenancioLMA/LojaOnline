@@ -1,15 +1,8 @@
 package Modulo.View;
 
-import Modulo.SGE.Entity.Estoque;
-import Modulo.SGE.Entity.Fornecedor;
-import Modulo.SGE.Entity.Item;
-import Modulo.SGE.Enum.TamanhoItem;
 import Modulo.View.Interface.Tela;
 
-import java.util.ArrayList;
 import java.util.Scanner;
-
-import static Modulo.SGE.Utils.Funcs.*;
 
 public class SGETela implements Tela {
     private Scanner scanner = new Scanner(System.in);

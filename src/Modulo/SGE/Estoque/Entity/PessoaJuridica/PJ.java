@@ -1,4 +1,4 @@
-package Modulo.SGE.Entity.PessoaJuridica;
+package Modulo.SGE.Estoque.Entity.PessoaJuridica;
 
 import Modulo.Commons.Endereco;
 

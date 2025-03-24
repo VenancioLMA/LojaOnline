@@ -1,13 +1,21 @@
 package Modulo.SGE.Utils;
 
 import Modulo.Commons.Endereco;
-import Modulo.SGE.Entity.Fornecedor;
-import Modulo.SGE.Entity.Item;
-import Modulo.SGE.Enum.TamanhoItem;
+import Modulo.SGE.Estoque.Entity.Fornecedor;
+import Modulo.SGE.Estoque.Entity.Item;
+import Modulo.SGE.Estoque.Enum.TamanhoItem;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Random;
 
 public class Funcs {
+
+    static final SimpleDateFormat formatoEntrada = new SimpleDateFormat("dd/MM/yyyy");
+    static final SimpleDateFormat formataSaida = new SimpleDateFormat("dd 'de' MMMM 'de' yyyy", new Locale("pt", "BR"));
+
     static final Random random = new Random();
 
     public static Item gerarCamisaAleatoria(Fornecedor fornecedor) {
@@ -78,4 +86,14 @@ public class Funcs {
 
         return new Endereco(rua, numero, cep);
     }
+
+    public static Date formataDataEntrada(String data) throws ParseException {
+        Date dataConvertida = formatoEntrada.parse(data);
+        return dataConvertida;
+    }
+
+    public static String formataDataSaida(Date i) {
+        return formataSaida.format(i);
+    }
+
 }

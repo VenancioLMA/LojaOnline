@@ -1,7 +1,7 @@
-package Modulo.SGE.Entity;
+package Modulo.SGE.Estoque.Entity;
 
 import Modulo.Commons.Endereco;
-import Modulo.SGE.Entity.PessoaJuridica.PJ;
+import Modulo.SGE.Estoque.Entity.PessoaJuridica.PJ;
 
 public class Fornecedor extends PJ {
     public int id;

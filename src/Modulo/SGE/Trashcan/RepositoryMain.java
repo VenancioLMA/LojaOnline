@@ -1,6 +1,6 @@
 //package Modulo.SGE.Trashcan;
 //
-//import Modulo.SGE.Repository.IRepository;
+//import Modulo.Commons.Interfaces.IRepository;
 //
 //import java.lang.reflect.Field;
 //import java.util.ArrayList;

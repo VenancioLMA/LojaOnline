@@ -1,7 +1,4 @@
-package Modulo.SGE.Repository;
-
-import Modulo.Commons.Endereco;
-import Modulo.SGE.Entity.Fornecedor;
+package Modulo.Commons.Interfaces;
 
 import java.util.List;
 
@@ -16,5 +13,4 @@ public interface IRepository<T> {
     T listOne(int id);
 
     List<T> listAll();
-
 }

@@ -1,6 +1,4 @@
-package Modulo.SGE.Entity;
-
-import Modulo.SGE.Enum.TamanhoItem;
+package Modulo.SGE.Estoque.Entity;
 
 import java.util.ArrayList;
 import java.util.List;

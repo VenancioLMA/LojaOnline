@@ -1,6 +1,6 @@
-package Modulo.SGE.Entity;
+package Modulo.SGE.Estoque.Entity;
 
-import Modulo.SGE.Enum.TamanhoItem;
+import Modulo.SGE.Estoque.Enum.TamanhoItem;
 
 public class Item {
 

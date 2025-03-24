@@ -1,5 +1,5 @@
 package Modulo.Ecommerce.Entidades;
-import Modulo.SGE.Entity.Item;
+import Modulo.SGE.Estoque.Entity.Item;
 
 import java.util.ArrayList;
 import java.util.List;
