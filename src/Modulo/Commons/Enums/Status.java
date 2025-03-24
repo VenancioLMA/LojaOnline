@@ -1,4 +1,4 @@
-package Modulo.SGE.Enum;
+package Modulo.Commons.Enums;
 
 public enum Status {
     Desabilitado, Habilitado;

@@ -3,31 +3,35 @@ package Modulo.SGE.Entity;
 import Modulo.SGE.Enum.TamanhoItem;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class Estoque<T extends Item> {
-    ArrayList<T> items;
+public class Estoque {
+    private int id;
+    private List<Item> items;
 
     public Estoque() {
         this.items = new ArrayList<>();
     }
 
-    public Estoque<T> adicionarItem(T item) {
+    public Estoque adicionarItem(Item item) {
         items.add(item);
         return this;
     }
 
-    public Estoque<T> adicionarItem(ArrayList<T> item) {
-        items.addAll(item);
+    public Estoque adicionarItens(List<Item> itens) {
+        items.addAll(itens);
         return this;
     }
 
-    public Estoque<T> removerItem(T item) {
-        items.remove(item);
-        return this;
+    public int getId() {
+        return id;
     }
 
-    public ArrayList<T> getItems() {
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public List<Item> getItems() {
         return items;
     }
-
 }

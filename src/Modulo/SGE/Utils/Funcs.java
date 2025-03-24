@@ -1,22 +1,14 @@
 package Modulo.SGE.Utils;
 
-import Modulo.SGE.Entity.Endereco;
-import Modulo.SGE.Entity.Estoque;
+import Modulo.Commons.Endereco;
 import Modulo.SGE.Entity.Fornecedor;
 import Modulo.SGE.Entity.Item;
 import Modulo.SGE.Enum.TamanhoItem;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 public class Funcs {
     static final Random random = new Random();
-
-    public static ArrayList<Estoque> ListarItensEstoque(Estoque estoque) {
-        ArrayList<Estoque> itens = new ArrayList<>();
-        itens.add(estoque);
-        return itens;
-    }
 
     public static Item gerarCamisaAleatoria(Fornecedor fornecedor) {
         final String[] NOMES_CAMISAS = {
@@ -44,17 +36,18 @@ public class Funcs {
                 "Avenida Paulista", "Rua das Flores", "Alameda Santos", "Avenida Brasil", "Rua XV de Novembro"
         };
 
+        int id = geraIDAleatorio();
         String nomeEmpresa = NOMES_EMPRESAS[random.nextInt(NOMES_EMPRESAS.length)];
         String email = nomeEmpresa.toLowerCase().replace(" ", "") + "@contato.com.br";
         String cnpj = gerarCNPJ();
+        Endereco endereco = geraEnderecoAleatorio();
 
-        Endereco endereco = new Endereco(
-                NOMES_RUAS[random.nextInt(NOMES_RUAS.length)],
-                String.valueOf(random.nextInt(500) + 1), // Número entre 1 e 500
-                gerarCEP()
-        );
+        return new Fornecedor(id, email, cnpj, nomeEmpresa, endereco);
+    }
 
-        return new Fornecedor(email, cnpj, nomeEmpresa, endereco);
+    public static Item geraItemComFornecedor() {
+        Item i = new Item(gerarCamisaAleatoria(gerarFornecedorAleatorio()));
+        return i;
     }
 
     private static String gerarCNPJ() {
@@ -68,32 +61,21 @@ public class Funcs {
         return String.format("%05d%03d", random.nextInt(100000), random.nextInt(1000));
     }
 
-    public static void imprimirEstoque(Estoque<Item> estoque) {
-        int i = 0;
-        for (Item item : estoque.getItems()) {
-
-            System.out.println("🔹 Numero do produto: " + item.getId());
-            System.out.println("🛒 Produto: " + item.getDescricao());
-            System.out.println("💰 Preço: R$ " + item.getPreco());
-            System.out.println("📏 Tamanho: " + item.getTamanho());
-            System.out.println("📦 Quantidade: " + item.getQuantidade());
-
-            Fornecedor fornecedor = item.getFornecedor();
-            System.out.println("\n🔹 Fornecedor: " + fornecedor.getRazaoSocial());
-            System.out.println("📧 Contato: " + fornecedor.getEmail());
-            System.out.println("🏢 CNPJ: " + fornecedor.getCnpj());
-
-            Endereco endereco = fornecedor.getEndereco();
-
-            System.out.println("📍 Endereço: " + endereco.toString());
-            System.out.println();
-            System.out.println("====================================\n");
-        }
-    }
-
     public static int geraIDAleatorio() {
         int id;
         return id = random.nextInt(100);
     }
 
+    public static Endereco geraEnderecoAleatorio() {
+        final String[] RUAS = {
+                "Avenida Paulista", "Rua das Flores", "Avenida Brasil",
+                "Rua XV de Novembro", "Rua Sete de Setembro", "Avenida Independência"
+        };
+
+        String rua = RUAS[random.nextInt(RUAS.length)];
+        String numero = String.valueOf(random.nextInt(1000) + 1); // Números de 1 a 1000
+        String cep = gerarCEP();
+
+        return new Endereco(rua, numero, cep);
+    }
 }

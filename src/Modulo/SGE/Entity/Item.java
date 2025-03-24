@@ -11,9 +11,6 @@ public class Item {
     private int quantidade;
     private Fornecedor fornecedor;
 
-//    private Fornecedor fornecedor;
-
-
     public Item(int id, int preco, String descricao, TamanhoItem tamanho, int quantidade, Fornecedor fornecedor) {
         this.id = id;
         this.preco = preco;
@@ -21,6 +18,15 @@ public class Item {
         this.tamanho = tamanho;
         this.quantidade = quantidade;
         this.fornecedor = fornecedor;
+    }
+
+    public Item(Item item) {
+        this.id = item.getId();
+        this.preco = item.getPreco();
+        this.descricao = item.getDescricao();
+        this.tamanho = item.getTamanho();
+        this.quantidade = item.getQuantidade();
+        this.fornecedor = item.getFornecedor();
     }
 
     public int getId() {
@@ -74,22 +80,14 @@ public class Item {
     @Override
     public String toString() {
         return "Item{" +
-                "preco=" + preco +
+                "id=" + id +
+                ", preco=" + preco +
                 ", descricao='" + descricao + '\'' +
                 ", tamanho=" + tamanho +
                 ", quantidade=" + quantidade +
                 ", fornecedor=" + fornecedor +
                 '}';
     }
-
-
-    public void ItemAdicionado(){
-        this.quantidade++;
-        this.preco += this.quantidade;
-
-    }
-
-
-    }
+}
 
 

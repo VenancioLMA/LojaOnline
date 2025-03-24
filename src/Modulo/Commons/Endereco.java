@@ -1,6 +1,6 @@
-package Modulo.SGE.Entity;
+package Modulo.Commons;
 
-import Modulo.SGE.Enum.Status;
+import Modulo.Commons.Enums.Status;
 
 import static Modulo.SGE.Utils.CaptalizarTexto.capitalizarPalavras;
 

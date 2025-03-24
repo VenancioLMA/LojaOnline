@@ -1,6 +1,6 @@
 package Modulo.SGE.Entity.PessoaJuridica;
 
-import Modulo.SGE.Entity.Endereco;
+import Modulo.Commons.Endereco;
 
 public abstract class PJ {
     protected String email;
