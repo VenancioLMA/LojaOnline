@@ -1,4 +1,4 @@
-package Modulo.SGE.Utils;
+package Modulo.Utils;
 
 public class CaptalizarTexto {
     public static String capitalizarPalavras(String i) {

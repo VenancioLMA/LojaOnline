@@ -2,7 +2,7 @@ package Modulo.Commons;
 
 import Modulo.Commons.Enums.Status;
 
-import static Modulo.SGE.Utils.CaptalizarTexto.capitalizarPalavras;
+import static Modulo.Utils.CaptalizarTexto.capitalizarPalavras;
 
 public class Endereco {
     private final String rua;

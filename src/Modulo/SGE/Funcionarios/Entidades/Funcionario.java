@@ -6,7 +6,7 @@ import Modulo.SGE.Funcionarios.Enum.Sexo;
 import java.text.ParseException;
 import java.util.Date;
 
-import static Modulo.SGE.Utils.Funcs.formataDataEntrada;
+import static Modulo.Utils.Funcs.formataDataEntrada;
 
 public abstract class Funcionario {
     protected int id;

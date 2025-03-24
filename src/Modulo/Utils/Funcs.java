@@ -1,9 +1,12 @@
-package Modulo.SGE.Utils;
+package Modulo.Utils;
 
 import Modulo.Commons.Endereco;
+import Modulo.SGE.Estoque.Entity.Estoque;
 import Modulo.SGE.Estoque.Entity.Fornecedor;
 import Modulo.SGE.Estoque.Entity.Item;
 import Modulo.SGE.Estoque.Enum.TamanhoItem;
+import Modulo.SGE.Funcionarios.Entidades.*;
+import Modulo.SGE.Funcionarios.Enum.Sexo;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

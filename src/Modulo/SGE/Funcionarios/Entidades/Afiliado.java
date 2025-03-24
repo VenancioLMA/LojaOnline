@@ -3,9 +3,8 @@ package Modulo.SGE.Funcionarios.Entidades;
 import Modulo.SGE.Funcionarios.Enum.Sexo;
 
 import java.text.ParseException;
-import java.util.Date;
 
-import static Modulo.SGE.Utils.Funcs.formataDataSaida;
+import static Modulo.Utils.Funcs.formataDataSaida;
 import static java.lang.Integer.parseInt;
 
 public class Afiliado extends Funcionario {

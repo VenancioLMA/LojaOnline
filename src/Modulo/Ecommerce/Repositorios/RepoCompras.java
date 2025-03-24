@@ -1,13 +1,13 @@
 package Modulo.Ecommerce.Repositorios;
 
 import Modulo.Commons.Interfaces.IRepository;
-import Modulo.Ecommerce.Entidades.ClienteCad;
+import Modulo.Ecommerce.Serviços.ServicoCompras;
 
 import java.util.List;
 
-public class RepositorioCliente implements IRepository<ClienteCad> {
+public class RepoCompras implements IRepository<ServicoCompras> {
     @Override
-    public ClienteCad add(ClienteCad i) {
+    public ServicoCompras add(ServicoCompras i) {
         return null;
     }
 
@@ -17,17 +17,17 @@ public class RepositorioCliente implements IRepository<ClienteCad> {
     }
 
     @Override
-    public ClienteCad update(int id, Object key, Object newValue) {
+    public ServicoCompras update(int id, Object key, Object newValue) {
         return null;
     }
 
     @Override
-    public ClienteCad listOne(int id) {
+    public ServicoCompras listOne(int id) {
         return null;
     }
 
     @Override
-    public List<ClienteCad> listAll() {
+    public List<ServicoCompras> listAll() {
         return List.of();
     }
 }

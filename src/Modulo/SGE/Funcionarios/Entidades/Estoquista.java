@@ -3,9 +3,8 @@ package Modulo.SGE.Funcionarios.Entidades;
 import Modulo.SGE.Funcionarios.Enum.Sexo;
 
 import java.text.ParseException;
-import java.util.Date;
 
-import static Modulo.SGE.Utils.Funcs.formataDataSaida;
+import static Modulo.Utils.Funcs.formataDataSaida;
 
 public class Estoquista extends Funcionario {
     public Estoquista(int id, String nome, String email, Sexo sexo, String cpf, String dataDeNascimento, int salario) throws ParseException {
