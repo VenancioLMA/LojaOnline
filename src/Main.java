@@ -1,26 +1,26 @@
-import Modulo.SGE.Funcionarios.Entidades.Afiliado;
-import Modulo.SGE.Funcionarios.Entidades.Estoquista;
-import Modulo.SGE.Funcionarios.Enum.Sexo;
-import Modulo.SGE.Funcionarios.Repositorio.FuncRepo;
+import Modulo.SGE.Estoque.Repository.EstoqueRepo;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+
+import static Modulo.SGE.Servico.VerificaEstoque.VerificaEstoque;
 
 public class Main {
     public static void main(String[] args) throws ParseException {
 
 //        Sistema.iniciar();
 
-        FuncRepo funcRepo = new FuncRepo();
-        String date = "24/03/2002";
+        // inicio do sistema ecommerce
 
-        Afiliado afiliado = new Afiliado(1, "Arlei Nascimento", "arlei@gmail.com", Sexo.Masculino, "71527256405", date, 0);
-        Estoquista estoquista = new Estoquista(2, "Laxus", "laxus@gmail.com", Sexo.Masculino, "11111111105", date, 0);
+        // listar todos itens disponiveis no estoque
 
-        funcRepo.add(afiliado);
-        funcRepo.add(estoquista);
+        // usuario escolhe os itens do carrinho
 
-        System.out.println(funcRepo.listAll());
+        // usuario escolhe a forma de pagamento
+
+        // compra eh montada
+
+        //
+
+        System.out.println(VerificaEstoque());
     }
 }

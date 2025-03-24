@@ -7,7 +7,8 @@ public class Estoque {
     private int id;
     private List<Item> items;
 
-    public Estoque() {
+    public Estoque(int id) {
+        this.id = id;
         this.items = new ArrayList<>();
     }
 
@@ -31,5 +32,13 @@ public class Estoque {
 
     public List<Item> getItems() {
         return items;
+    }
+
+    @Override
+    public String toString() {
+        return "Estoque{" +
+                "id=" + id +
+                ", items=" + items +
+                '}';
     }
 }

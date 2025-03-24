@@ -21,21 +21,23 @@ public class Funcs {
 
     static final Random random = new Random();
 
-    public static Item gerarCamisaAleatoria(Fornecedor fornecedor) {
-        final String[] NOMES_CAMISAS = {
-                "Camisa Polo Azul", "Camisa Social Branca", "Camisa Esportiva Preta",
-                "Camisa Casual Verde", "Camisa Xadrez Vermelha"
-        };
-
+    public static Item gerarItemAleatorio(Fornecedor fornecedor) {
+        final String[] TIPOS_ITENS = {"Camisa", "Calça", "Sapato", "Jaqueta", "Bermuda"};
+        final String[] CORES = {"Azul", "Branco", "Preto", "Verde", "Vermelho", "Cinza"};
+        final String[] ESTILOS = {"Casual", "Esportivo", "Social", "Xadrez", "Liso"};
         final TamanhoItem[] TAMANHOS = TamanhoItem.values();
 
-        int id = random.nextInt(100); // Preço entre 50 e 200
-        int preco = random.nextInt(151) + 50; // Preço entre 50 e 200
-        String descricao = NOMES_CAMISAS[random.nextInt(NOMES_CAMISAS.length)];
-        TamanhoItem tamanho = TAMANHOS[random.nextInt(TAMANHOS.length)];
-        int quantidade = random.nextInt(51) + 10; // Estoque entre 10 e 60
 
-        return new Item(id, preco, descricao, tamanho, quantidade, fornecedor);
+        String desc = TIPOS_ITENS[random.nextInt(TIPOS_ITENS.length)] + " " + ESTILOS[random.nextInt(ESTILOS.length)] + " " + CORES[random.nextInt(CORES.length)];
+
+        return new Item(
+                random.nextInt(100),
+                random.nextInt(151) + 50,
+                desc,
+                TAMANHOS[random.nextInt(TAMANHOS.length)],
+                random.nextInt(51) + 10,
+                fornecedor
+        );
     }
 
     public static Fornecedor gerarFornecedorAleatorio() {
@@ -56,8 +58,55 @@ public class Funcs {
         return new Fornecedor(id, email, cnpj, nomeEmpresa, endereco);
     }
 
+    public static Funcionario gerarFuncionarioAleatorio() throws ParseException {
+        final String[][] DADOS = {
+                {"Carlos Silva", "carlos@email.com", "Masculino"},
+                {"Mariana Souza", "mariana@email.com", "Feminino"},
+                {"João Pereira", "joao@email.com", "Masculino"},
+                {"Ana Oliveira", "ana@email.com", "Feminino"},
+                {"Roberto Lima", "roberto@email.com", "Masculino"}
+        };
+
+        final String[] CPFS = {"12345678900", "98765432100", "45612378900", "32165498700", "78945612300"};
+        final String[] DATAS_NASC = {"1990/05/12", "1985/08/22", "1993/11/30", "2000/07/19", "1997/04/25"};
+        final Class<?>[] TIPOS_FUNCIONARIOS = {Financeiro.class, Estoquista.class, Afiliado.class, Administrativo.class};
+
+        int index = random.nextInt(DADOS.length);
+        int id = random.nextInt(1000);
+        String nome = DADOS[index][0];
+        String email = DADOS[index][1];
+        Sexo sexo = Sexo.valueOf(DADOS[index][2]);
+        String cpf = CPFS[index];
+        String dataNascimento = DATAS_NASC[index];
+        int salario = random.nextInt(5000) + 2000; // Salário entre 2000 e 7000
+        Class<?> tipoFuncionario = TIPOS_FUNCIONARIOS[random.nextInt(TIPOS_FUNCIONARIOS.length)];
+
+        try {
+            if (tipoFuncionario == Financeiro.class) {
+                return new Financeiro(id, nome, email, sexo, cpf, dataNascimento, salario);
+            } else if (tipoFuncionario == Estoquista.class) {
+                return new Estoquista(id, nome, email, sexo, cpf, dataNascimento, salario);
+            } else if (tipoFuncionario == Afiliado.class) {
+                return new Afiliado(id, nome, email, sexo, cpf, dataNascimento, salario);
+            } else if (tipoFuncionario == Administrativo.class) {
+                return new Administrativo(id, nome, email, sexo, cpf, dataNascimento, salario);
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public static Estoque gerarEstoqueAleatorio(){
+        Estoque estoque = new Estoque(random.nextInt(100));
+        estoque.adicionarItem(geraItemComFornecedor());
+        return estoque;
+    }
+
+
     public static Item geraItemComFornecedor() {
-        Item i = new Item(gerarCamisaAleatoria(gerarFornecedorAleatorio()));
+        Item i = new Item(gerarItemAleatorio(gerarFornecedorAleatorio()));
         return i;
     }
 
@@ -98,5 +147,4 @@ public class Funcs {
     public static String formataDataSaida(Date i) {
         return formataSaida.format(i);
     }
-
 }
