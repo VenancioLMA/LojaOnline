@@ -16,7 +16,7 @@ public class SGETela implements Tela {
             System.out.println("1️⃣ - Listar estoque");
             System.out.println("2️⃣ - Adicionar item (aleatório)");
             System.out.println("3️⃣ - Adicionar item (personalizado)");
-            System.out.println("4️⃣ - Remover item");
+            System.out.println("4️⃣ - RemoverEstoque item");
             System.out.println("0️⃣ - Voltar ao menu principal");
             System.out.println("========================================================\n");
             System.out.print("🔷 Escolha uma opção: ");
@@ -28,7 +28,7 @@ public class SGETela implements Tela {
 //                case 1 -> listarEstoqueTela();
 //                case 2 -> adicionarItemAleatorio();
 //                case 3 -> adicionarItemPersonalizado();
-//                case 4 -> removerItem();
+//                case 4 -> RemoverItem();
                 case 0 -> System.out.println("🔙 Voltando ao menu principal...");
                 default -> System.out.println("❌ Opção inválida, tente novamente.");
             }
@@ -151,14 +151,14 @@ public class SGETela implements Tela {
 //
 //        Item novoItem = new Item(id, preco, descricao, tamanhos[tamanhoIndex], quantidade, fornecedor);
 //        ArrayList<Item> lista = new ArrayList<>();
-//        lista.add(novoItem);
+//        lista.Adicionar(novoItem);
 //
 //        estoque.adicionarItem(lista);
 //        animarTexto("✅ Item adicionado com sucesso!", 30);
 //        pausar(2000);
 //    }
 //
-//    private void removerItem() {
+//    private void RemoverItem() {
 //        limparTela();
 //        if (estoque.getItems().isEmpty()) {
 //            animarTexto("⚠️ Estoque já está vazio.", 30);
@@ -166,12 +166,12 @@ public class SGETela implements Tela {
 //        }
 //
 //        listarEstoque();
-//        System.out.print("❌ Digite o número do item para remover: ");
+//        System.out.print("❌ Digite o número do item para RemoverEstoque: ");
 //        int index = scanner.nextInt();
 //        scanner.nextLine(); // Consumir quebra de linha
 //
 //        if (index > 0 && index <= estoque.getItems().size()) {
-//            Item removido = estoque.getItems().remove(index - 1);
+//            Item removido = estoque.getItems().RemoverEstoque(index - 1);
 //            animarTexto("✅ Item removido com sucesso: " + removido.getDescricao(), 30);
 //        } else {
 //            animarTexto("❌ Número inválido, tente novamente.", 30);

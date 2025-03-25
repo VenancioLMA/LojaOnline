@@ -12,16 +12,6 @@ public class Estoque {
         this.items = new ArrayList<>();
     }
 
-    public Estoque adicionarItem(Item item) {
-        items.add(item);
-        return this;
-    }
-
-    public Estoque adicionarItens(List<Item> itens) {
-        items.addAll(itens);
-        return this;
-    }
-
     public int getId() {
         return id;
     }
@@ -34,11 +24,18 @@ public class Estoque {
         return items;
     }
 
+    public void setItems(List<Item> items) {
+        this.items = items;
+    }
+
+    public void setItem(Item item) {
+        if (!items.contains(item)) {
+            this.items.add(item);
+        }
+    }
+
     @Override
     public String toString() {
-        return "Estoque{" +
-                "id=" + id +
-                ", items=" + items +
-                '}';
+        return "Estoque{" + "id=" + id + ", items=" + items + '}';
     }
 }

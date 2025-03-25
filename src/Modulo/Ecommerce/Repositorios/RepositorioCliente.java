@@ -7,27 +7,27 @@ import java.util.List;
 
 public class RepositorioCliente implements IRepository<ClienteCad> {
     @Override
-    public ClienteCad add(ClienteCad i) {
+    public ClienteCad Adicionar(ClienteCad i) {
         return null;
     }
 
     @Override
-    public boolean remove(int id) {
+    public boolean Remover(int id) {
         return false;
     }
 
     @Override
-    public ClienteCad update(int id, Object key, Object newValue) {
+    public ClienteCad Atualizar(int id, Object key, Object newValue) {
         return null;
     }
 
     @Override
-    public ClienteCad listOne(int id) {
+    public ClienteCad ListarPorId(int id) {
         return null;
     }
 
     @Override
-    public List<ClienteCad> listAll() {
+    public List<ClienteCad> ListarTodos() {
         return List.of();
     }
 }

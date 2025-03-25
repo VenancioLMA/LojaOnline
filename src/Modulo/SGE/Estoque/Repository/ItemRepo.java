@@ -8,22 +8,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ItemRepo implements IRepository<Item> {
-    private List<Item> itens = new ArrayList<>();
+    private final List<Item> list = new ArrayList<>();
 
     @Override
-    public Item add(Item i) {
-        itens.add(i);
+    public Item Adicionar(Item i) {
+        list.add(i);
         return i;
     }
 
     @Override
-    public boolean remove(int id) {
-        return itens.removeIf(i -> i.getId() == id);
+    public boolean Remover(int id) {
+        return list.removeIf(i -> i.getId() == id);
     }
 
     @Override
-    public Item update(int id, Object key, Object newValue) {
-        Item i = listOne(id);
+    public Item Atualizar(int id, Object key, Object newValue) {
+        Item i = ListarPorId(id);
         try {
             for (Field field : i.getClass().getDeclaredFields()) {
                 if (field.getName().equalsIgnoreCase(key.toString())) {
@@ -39,12 +39,12 @@ public class ItemRepo implements IRepository<Item> {
     }
 
     @Override
-    public Item listOne(int id) {
-        return itens.stream().filter(i -> i.getId() == id).findFirst().orElse(null);
+    public Item ListarPorId(int id) {
+        return list.stream().filter(i -> i.getId() == id).findFirst().orElse(null);
     }
 
     @Override
-    public List<Item> listAll() {
-        return new ArrayList<>(itens);
+    public List<Item> ListarTodos() {
+        return new ArrayList<>(list);
     }
 }

@@ -3,7 +3,6 @@ package Modulo.SGE.Estoque.Entity;
 import Modulo.SGE.Estoque.Enum.TamanhoItem;
 
 public class Item {
-
     private int id;
     private int preco;
     private String descricao;
@@ -18,15 +17,6 @@ public class Item {
         this.tamanho = tamanho;
         this.quantidade = quantidade;
         this.fornecedor = fornecedor;
-    }
-
-    public Item(Item item) {
-        this.id = item.getId();
-        this.preco = item.getPreco();
-        this.descricao = item.getDescricao();
-        this.tamanho = item.getTamanho();
-        this.quantidade = item.getQuantidade();
-        this.fornecedor = item.getFornecedor();
     }
 
     public int getId() {
@@ -79,13 +69,13 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Item{" +
-                "id=" + id +
-                ", preco=" + preco +
-                ", descricao='" + descricao + '\'' +
-                ", tamanho=" + tamanho +
-                ", quantidade=" + quantidade +
-                ", fornecedor=" + fornecedor +
+        return "\nItem{\n" +
+                "\nid=" + id +
+                ", \npreco=" + preco +
+                ", \ndescricao='" + descricao +
+                ", \ntamanho=" + tamanho +
+                ", \nquantidade=" + quantidade +
+                ", \nfornecedor=" + fornecedor +
                 '}';
     }
 }
