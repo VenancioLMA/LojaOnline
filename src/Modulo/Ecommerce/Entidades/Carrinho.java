@@ -10,4 +10,7 @@ public class Carrinho {
     String descricao;
     List<Item> carrinho = new ArrayList<Item>();
 
+    public void adicionarItem(Item item1) {
+        carrinho.add(item1);
+    }
 }

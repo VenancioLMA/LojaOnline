@@ -29,6 +29,10 @@ public class Item {
         this.fornecedor = item.getFornecedor();
     }
 
+    public Item(int id, int preco, String carro, TamanhoItem tamanhoItem, int quantidade, int i) {
+    }
+
+
     public int getId() {
         return id;
     }
