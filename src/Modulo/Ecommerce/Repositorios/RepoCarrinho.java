@@ -11,27 +11,27 @@ public class RepoCarrinho implements IRepository<Carrinho> {
 
 
     @Override
-    public Carrinho add(Carrinho i) {
+    public Carrinho Adicionar(Carrinho i) {
         return null;
     }
 
     @Override
-    public boolean remove(int id) {
+    public boolean Remover(int id) {
         return false;
     }
 
     @Override
-    public Carrinho update(int id, Object key, Object newValue) {
+    public Carrinho Atualizar(int id, Object key, Object newValue) {
         return null;
     }
 
     @Override
-    public Carrinho listOne(int id) {
+    public Carrinho ListarPorId(int id) {
         return null;
     }
 
     @Override
-    public List<Carrinho> listAll() {
+    public List<Carrinho> ListarTodos() {
         return List.of();
     }
 }

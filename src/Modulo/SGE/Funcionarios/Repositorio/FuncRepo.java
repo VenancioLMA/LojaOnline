@@ -11,19 +11,19 @@ public class FuncRepo implements IRepository<Funcionario> {
     List<Funcionario> funcionariosList = new ArrayList<>();
 
     @Override
-    public Funcionario add(Funcionario i) {
+    public Funcionario Adicionar(Funcionario i) {
         funcionariosList.add(i);
         return i;
     }
 
     @Override
-    public boolean remove(int id) {
+    public boolean Remover(int id) {
         return funcionariosList.removeIf(i -> i.getId() == id);
     }
 
     @Override
-    public Funcionario update(int id, Object key, Object newValue) {
-        Funcionario i = listOne(id);
+    public Funcionario Atualizar(int id, Object key, Object newValue) {
+        Funcionario i = ListarPorId(id);
         try {
             for (Field field : i.getClass().getDeclaredFields()) {
                 if (field.getName().equalsIgnoreCase(key.toString())) {
@@ -39,12 +39,12 @@ public class FuncRepo implements IRepository<Funcionario> {
     }
 
     @Override
-    public Funcionario listOne(int id) {
+    public Funcionario ListarPorId(int id) {
         return funcionariosList.stream().filter(i -> i.getId() == id).findFirst().orElse(null);
     }
 
     @Override
-    public List<Funcionario> listAll() {
+    public List<Funcionario> ListarTodos() {
         return new ArrayList<>(funcionariosList);
     }
 }

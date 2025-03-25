@@ -11,18 +11,18 @@
 //    protected final List<T> dataStore = new ArrayList<>();
 //
 //    @Override
-//    public T add(T i) {
-//        dataStore.add(i);
+//    public T Adicionar(T i) {
+//        dataStore.Adicionar(i);
 //        return i;
 //    }
 //
 //    @Override
-//    public boolean remove(int id) {
+//    public boolean RemoverEstoque(int id) {
 //        return dataStore.removeIf(item -> hasMatchingField(item, param));
 //    }
 //
 //    @Override
-//    public T update(int id, Object newValue) {
+//    public T AtualizarEstoque(int id, Object newValue) {
 //        for (T item : dataStore) {
 //            if (hasMatchingField(item, param)) {
 //                return updateField(item, param, newValue);
@@ -32,12 +32,12 @@
 //    }
 //
 //    @Override
-//    public T listOne(int id) {
+//    public T ListarEstoquePorId(int id) {
 //        return dataStore.stream().filter(item -> hasMatchingField(item, param)).findFirst().orElse(null);
 //    }
 //
 //    @Override
-//    public List<T> listAll() {
+//    public List<T> ListarTodosEstoque() {
 //        return new ArrayList<>(dataStore);
 //    }
 //

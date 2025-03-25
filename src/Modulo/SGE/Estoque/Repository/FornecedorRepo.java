@@ -8,22 +8,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FornecedorRepo implements IRepository<Fornecedor> {
-    private List<Fornecedor> fornecedores = new ArrayList<>();
+    private final List<Fornecedor> list = new ArrayList<>();
 
     @Override
-    public Fornecedor add(Fornecedor i) {
-        fornecedores.add(i);
+    public Fornecedor Adicionar(Fornecedor i) {
+        list.add(i);
         return i;
     }
 
     @Override
-    public boolean remove(int id) {
-        return fornecedores.removeIf(i -> i.getId() == id);
+    public boolean Remover(int id) {
+        return list.removeIf(i -> i.getId() == id);
     }
 
     @Override
-    public Fornecedor update(int id, Object key, Object newValue) {
-        Fornecedor i = listOne(id);
+    public Fornecedor Atualizar(int id, Object key, Object newValue) {
+        Fornecedor i = ListarPorId(id);
         try {
             for (Field field : i.getClass().getDeclaredFields()) {
                 if (field.getName().equalsIgnoreCase(key.toString())) {
@@ -39,12 +39,19 @@ public class FornecedorRepo implements IRepository<Fornecedor> {
     }
 
     @Override
-    public Fornecedor listOne(int id) {
-        return fornecedores.stream().filter(i -> i.getId() == id).findFirst().orElse(null);
+    public Fornecedor ListarPorId(int id) {
+        return list.stream().filter(i -> i.getId() == id).findFirst().orElse(null);
     }
 
     @Override
-    public List<Fornecedor> listAll() {
-        return new ArrayList<>(fornecedores);
+    public List<Fornecedor> ListarTodos() {
+        return new ArrayList<>(list);
+    }
+
+    @Override
+    public String toString() {
+        return "FornecedorRepo{" +
+                "list=" + list +
+                '}';
     }
 }

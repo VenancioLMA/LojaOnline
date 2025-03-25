@@ -5,6 +5,7 @@ import Modulo.SGE.Estoque.Entity.Estoque;
 import Modulo.SGE.Estoque.Entity.Fornecedor;
 import Modulo.SGE.Estoque.Entity.Item;
 import Modulo.SGE.Estoque.Enum.TamanhoItem;
+import Modulo.SGE.Estoque.Repository.EstoqueRepo;
 import Modulo.SGE.Funcionarios.Entidades.*;
 import Modulo.SGE.Funcionarios.Enum.Sexo;
 
@@ -98,16 +99,19 @@ public class Funcs {
         return null;
     }
 
-    public static Estoque gerarEstoqueAleatorio(){
+    public static EstoqueRepo gerarEstoqueAleatorio(int tamanho) {
         Estoque estoque = new Estoque(random.nextInt(100));
-        estoque.adicionarItem(geraItemComFornecedor());
-        return estoque;
+        EstoqueRepo estoqueRepo = new EstoqueRepo();
+        for (int i = 0; i < tamanho; i++) {
+            Item novoItem = geraItemComFornecedor();
+            estoque.setItem(novoItem);
+        }
+        estoqueRepo.Adicionar(estoque);
+        return estoqueRepo;
     }
 
-
     public static Item geraItemComFornecedor() {
-        Item i = new Item(gerarItemAleatorio(gerarFornecedorAleatorio()));
-        return i;
+        return gerarItemAleatorio(gerarFornecedorAleatorio());
     }
 
     private static String gerarCNPJ() {

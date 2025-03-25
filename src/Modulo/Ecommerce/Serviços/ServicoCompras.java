@@ -28,6 +28,7 @@ public class ServicoCompras {
         int index = carrinhos.indexOf(carrinho);
         if (index != -1) {
             this.carrinhos.set(index, carrinho);
+            System.out.println("Carrinho atualizado.");
         } else {
             System.out.println("Carrinho não encontrado.");
         }
@@ -37,6 +38,12 @@ public class ServicoCompras {
         return List.of();
     }
 
+    public void verificarItem(Carrinho carrinho) {
+      verificarItem(Carrinho carrinho);
+    }
+    public void verificarEstoque(Estoque estoque) {
+      verificarEstoque(Estoque estoque);
+    }
 
   public double calculaValorTotal() {
       double total = 0;
@@ -58,20 +65,17 @@ public class ServicoCompras {
     private String calcularTotal() {
         return "";
     }
-
-    @Override
-    public String toString() {
-        return "ServicoCompras{" +
-                "itemArraylist=" + itemArraylist +
-                ", carrinhos=" + carrinhos +
-                ", carrinho=" + carrinho +
-                '}';
-    }
 }
 
 
 
 
+
+
+
+
+
+   }
 
 
 
