@@ -3,7 +3,6 @@ import Modulo.Ecommerce.Entidades.Carrinho;
 import Modulo.Ecommerce.Repositorios.RepoCarrinho;
 import Modulo.SGE.Estoque.Entity.Estoque;
 import Modulo.SGE.Estoque.Entity.Item;
-import static Modulo.SGE.Servico.VerificaEstoque.VerificaEstoque;
 
 import java.util.ArrayList;
 import java.util.List;
