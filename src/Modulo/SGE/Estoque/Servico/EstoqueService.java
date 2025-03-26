@@ -1,5 +1,6 @@
 package Modulo.SGE.Estoque.Servico;
 
+import Modulo.Commons.Interfaces.IService;
 import Modulo.SGE.Estoque.Entity.Estoque;
 import Modulo.SGE.Estoque.Entity.Item;
 import Modulo.SGE.Estoque.Repository.EstoqueRepo;
@@ -7,68 +8,68 @@ import Modulo.SGE.Estoque.Repository.EstoqueRepo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EstoqueService {
+public class EstoqueService implements IService<Estoque> {
     private final EstoqueRepo repo;
 
     public EstoqueService(EstoqueRepo repo) {
         this.repo = repo;
     }
 
-    public EstoqueRepo CadastrarItemEstoque(int estoqueId, Item item) throws Exception {
-        Estoque estoque = ListarEstoquePorId(estoqueId);
-        if (estoque != null) {
-            estoque.setItem(item);
-            AtualizarEstoque(estoqueId, "items", estoque);
+    @Override
+    public void Adicionar(Estoque i) {
+        repo.AdicionarRepo(i);
+    }
+
+    @Override
+    public void Remover(int id) throws Exception {
+        if (!repo.RemoverRepo(id)) {
+            throw new Exception("Estoque não encontrado");
         }
-
-        return repo;
     }
 
-    public EstoqueRepo CadastrarEstoque(int id) {
-        Estoque i = new Estoque(id);
-        repo.Adicionar(i);
-        return repo;
+    @Override
+    public void Alterar(int id, Object chave, Object novoValor) {
+        repo.AtualizarRepo(id, chave, novoValor);
     }
 
-    public List<Estoque> ListarTodosEstoque() {
-        return repo.ListarTodos();
+    @Override
+    public List<Estoque> ListarTodos() {
+        return repo.ListarTodosRepo();
     }
 
-    public Estoque ListarEstoquePorId(int id) throws Exception {
-        Estoque i = repo.ListarPorId(id);
+    @Override
+    public Estoque ListarPorId(int id) throws Exception {
+        Estoque i = repo.ListarPorIdRepo(id);
         if (i != null) {
             return i;
         }
         throw new Exception("Estoque não encontrado");
     }
 
-
-    public EstoqueRepo RemoverEstoque(int id) throws Exception {
-        if (!repo.Remover(id)) {
-            throw new Exception("Estoque não encontrado");
+    public EstoqueRepo CadastrarItemEstoque(int estoqueId, Item item) throws Exception {
+        Estoque estoque = ListarPorId(estoqueId);
+        if (estoque != null) {
+            estoque.setItem(item);
+            Alterar(estoqueId, "items", estoque);
         }
-        return repo;
-    }
 
-    public EstoqueRepo AtualizarEstoque(int id, String atributo, Object novoValor) {
-        repo.Atualizar(id, atributo, novoValor);
         return repo;
     }
 
     public List<Item> ListarTodosItemsDentroDoEstoquePorId(int id) throws Exception {
-        return ListarEstoquePorId(id).getItems();
+        return ListarPorId(id).getItems();
     }
 
     public List<Item> ListarTodosItemsDentroDoEstoque() {
         List<Item> items = new ArrayList<>();
-        for (Estoque estoque : ListarTodosEstoque()) {
+        for (Estoque estoque : ListarTodos()) {
             items.addAll(estoque.getItems());
         }
         return items;
     }
 
     public Item ListarItemDentroDoEstoquePorIdDoItem(int id) {
-        for (Estoque estoque : ListarTodosEstoque()) {
+        for (Estoque estoque : ListarTodos()) {
             for (Item item : estoque.getItems()) {
                 if (item.getId() == id) {
                     return item;
@@ -77,6 +78,4 @@ public class EstoqueService {
         }
         return null;
     }
-
-
 }

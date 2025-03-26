@@ -7,27 +7,27 @@ import java.util.List;
 
 public class RepoCompras implements IRepository<ServicoCompras> {
     @Override
-    public ServicoCompras Adicionar(ServicoCompras i) {
+    public ServicoCompras AdicionarRepo(ServicoCompras i) {
         return null;
     }
 
     @Override
-    public boolean Remover(int id) {
+    public boolean RemoverRepo(int id) {
         return false;
     }
 
     @Override
-    public ServicoCompras Atualizar(int id, Object key, Object newValue) {
+    public ServicoCompras AtualizarRepo(int id, Object key, Object newValue) {
         return null;
     }
 
     @Override
-    public ServicoCompras ListarPorId(int id) {
+    public ServicoCompras ListarPorIdRepo(int id) {
         return null;
     }
 
     @Override
-    public List<ServicoCompras> ListarTodos() {
+    public List<ServicoCompras> ListarTodosRepo() {
         return List.of();
     }
 }

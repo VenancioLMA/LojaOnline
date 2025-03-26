@@ -14,19 +14,19 @@ public class ModeloLivroService {
     // Cadastra um novo livro no sistema
     public ModeloLivroRepositorio CadastrarLivro(int id, String nome, Date dataLancamento) {
         ModeloLivro modeloLivro = new ModeloLivro(id, nome, dataLancamento);
-        repositorio.Adicionar(modeloLivro);
+        repositorio.AdicionarRepo(modeloLivro);
         return repositorio;
     }
 
     // Retorna todos os livros cadastrados
     public List<ModeloLivro> ListarTodosItens() {
-        return repositorio.ListarTodos();
+        return repositorio.ListarTodosRepo();
     }
 
 
     // Busca um livro pelo seu ID, lançando uma exceção se não for encontrado
     public ModeloLivro ListarItemPorId(int id) throws Exception {
-        ModeloLivro modeloLivro = repositorio.ListarPorId(id);
+        ModeloLivro modeloLivro = repositorio.ListarPorIdRepo(id);
         if (modeloLivro != null) {
             return modeloLivro;
         }
@@ -35,7 +35,7 @@ public class ModeloLivroService {
 
     // Remove um livro do sistema
     public ModeloLivroRepositorio RemoverItem(int id) throws Exception {
-        if (!repositorio.Remover(id)) {
+        if (!repositorio.RemoverRepo(id)) {
             throw new Exception("Livro não encontrado");
         }
         return repositorio;
@@ -43,7 +43,7 @@ public class ModeloLivroService {
 
     // Atualiza um atributo de um livro específico
     public ModeloLivroRepositorio EditarItem(int id, String atributo, Object novoValor) {
-        repositorio.Atualizar(id, atributo, novoValor);
+        repositorio.AtualizarRepo(id, atributo, novoValor);
         return repositorio;
     }
 

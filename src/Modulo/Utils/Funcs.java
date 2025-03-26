@@ -106,7 +106,7 @@ public class Funcs {
             Item novoItem = geraItemComFornecedor();
             estoque.setItem(novoItem);
         }
-        estoqueRepo.Adicionar(estoque);
+        estoqueRepo.AdicionarRepo(estoque);
         return estoqueRepo;
     }
 

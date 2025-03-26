@@ -4,13 +4,13 @@ import java.util.List;
 
 public interface IRepository<T> {
 
-    T Adicionar(T i);
+    T AdicionarRepo(T i);
 
-    boolean Remover(int id);
+    boolean RemoverRepo(int id);
 
-    T Atualizar(int id, Object key, Object newValue);
+    T AtualizarRepo(int id, Object key, Object newValue);
 
-    T ListarPorId(int id);
+    T ListarPorIdRepo(int id);
 
-    List<T> ListarTodos();
+    List<T> ListarTodosRepo();
 }

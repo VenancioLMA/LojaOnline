@@ -14,8 +14,8 @@ public class SGETela implements Tela {
             limparTela();
             System.out.println("\n===== 📦 SISTEMA DE GERENCIAMENTO DE ESTOQUE (SGE) =====");
             System.out.println("1️⃣ - Listar estoque");
-            System.out.println("2️⃣ - Adicionar item (aleatório)");
-            System.out.println("3️⃣ - Adicionar item (personalizado)");
+            System.out.println("2️⃣ - AdicionarRepo item (aleatório)");
+            System.out.println("3️⃣ - AdicionarRepo item (personalizado)");
             System.out.println("4️⃣ - RemoverEstoque item");
             System.out.println("0️⃣ - Voltar ao menu principal");
             System.out.println("========================================================\n");
@@ -151,7 +151,7 @@ public class SGETela implements Tela {
 //
 //        Item novoItem = new Item(id, preco, descricao, tamanhos[tamanhoIndex], quantidade, fornecedor);
 //        ArrayList<Item> lista = new ArrayList<>();
-//        lista.Adicionar(novoItem);
+//        lista.AdicionarRepo(novoItem);
 //
 //        estoque.adicionarItem(lista);
 //        animarTexto("✅ Item adicionado com sucesso!", 30);

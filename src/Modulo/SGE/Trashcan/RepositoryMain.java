@@ -11,8 +11,8 @@
 //    protected final List<T> dataStore = new ArrayList<>();
 //
 //    @Override
-//    public T Adicionar(T i) {
-//        dataStore.Adicionar(i);
+//    public T AdicionarRepo(T i) {
+//        dataStore.AdicionarRepo(i);
 //        return i;
 //    }
 //

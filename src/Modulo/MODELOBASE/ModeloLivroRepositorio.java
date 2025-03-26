@@ -10,21 +10,21 @@ public class ModeloLivroRepositorio implements IRepository<ModeloLivro> {
 
     // Adiciona um livro ao repositório
     @Override
-    public ModeloLivro Adicionar(ModeloLivro modeloLivro) {
+    public ModeloLivro AdicionarRepo(ModeloLivro modeloLivro) {
         lista.add(modeloLivro);
         return modeloLivro;
     }
 
     // Remove um livro pelo seu ID
     @Override
-    public boolean Remover(int id) {
+    public boolean RemoverRepo(int id) {
         return lista.removeIf(modeloLivro -> modeloLivro.getId() == id);
     }
 
     // Atualiza um atributo específico de um livro
     @Override
-    public ModeloLivro Atualizar(int id, Object key, Object newValue) {
-        ModeloLivro modeloLivro = ListarPorId(id);
+    public ModeloLivro AtualizarRepo(int id, Object key, Object newValue) {
+        ModeloLivro modeloLivro = ListarPorIdRepo(id);
         try {
             for (Field field : modeloLivro.getClass().getDeclaredFields()) {
                 if (field.getName().equalsIgnoreCase(key.toString())) {
@@ -41,13 +41,13 @@ public class ModeloLivroRepositorio implements IRepository<ModeloLivro> {
 
     // Retorna um livro específico pelo seu ID
     @Override
-    public ModeloLivro ListarPorId(int id) {
+    public ModeloLivro ListarPorIdRepo(int id) {
         return lista.stream().filter(i -> i.getId() == id).findFirst().orElse(null);
     }
 
     // Retorna todos os livros cadastrados
     @Override
-    public List<ModeloLivro> ListarTodos() {
+    public List<ModeloLivro> ListarTodosRepo() {
         return new ArrayList<>(lista);
     }
 }

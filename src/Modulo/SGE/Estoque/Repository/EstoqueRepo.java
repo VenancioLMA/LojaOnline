@@ -11,19 +11,19 @@ public class EstoqueRepo implements IRepository<Estoque> {
     private final List<Estoque> list = new ArrayList<>();
 
     @Override
-    public Estoque Adicionar(Estoque i) {
+    public Estoque AdicionarRepo(Estoque i) {
         list.add(i);
         return i;
     }
 
     @Override
-    public boolean Remover(int id) {
+    public boolean RemoverRepo(int id) {
         return list.removeIf(i -> i.getId() == id);
     }
 
     @Override
-    public Estoque Atualizar(int id, Object key, Object newValue) {
-        Estoque i = ListarPorId(id);
+    public Estoque AtualizarRepo(int id, Object key, Object newValue) {
+        Estoque i = ListarPorIdRepo(id);
         try {
             for (Field field : i.getClass().getDeclaredFields()) {
                 if (field.getName().equalsIgnoreCase(key.toString())) {
@@ -39,12 +39,12 @@ public class EstoqueRepo implements IRepository<Estoque> {
     }
 
     @Override
-    public Estoque ListarPorId(int id) {
+    public Estoque ListarPorIdRepo(int id) {
         return list.stream().filter(i -> i.getId() == id).findFirst().orElse(null);
     }
 
     @Override
-    public List<Estoque> ListarTodos() {
+    public List<Estoque> ListarTodosRepo() {
         return new ArrayList<>(list);
     }
 
