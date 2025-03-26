@@ -8,9 +8,10 @@ import java.util.List;
 public class Carrinho {
     int id;
     String descricao;
-    List<Item> carrinho = new ArrayList<Item>();
 
-    public void adicionarItem(Item item1) {
-        carrinho.add(item1);
+    List<Item> items = new ArrayList<Item>();
+
+    public void adicionarItem(Item item) {
+        items.add(item);
     }
 }

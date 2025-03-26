@@ -2,8 +2,6 @@ package Modulo.Ecommerce.Serviços;
 
 
 public class ServicoPagamento {
-
-
     public enum MetodoPagamento {
         Credito, Debito, Pix,
     }

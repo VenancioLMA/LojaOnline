@@ -9,6 +9,7 @@ public class ClienteCad {
     String telefone;
     String enderecos;
     String email;
+    Carrinho carrinho;
     //não entendi o bagulho da senha, ajuda ai Arlei
 
 
@@ -87,6 +88,14 @@ public class ClienteCad {
         this.enderecos = enderecos;
     }
 
+    public Carrinho getCarrinho() {
+        return carrinho;
+    }
+
+    public void setCarrinho(Carrinho carrinho) {
+        this.carrinho = carrinho;
+    }
+
     @Override
     public String toString() {
         return "Cliente Cadastrado:\n" +
@@ -97,7 +106,8 @@ public class ClienteCad {
                 "Sexo: " + sexo + "\n" +
                 "Telefone: " + telefone + "\n" +
                 "Endereços: " + "\n" +
-                "Email: " + email + "\n";
+                "Email: " + email + "\n" +
+                "Carrinho: " + carrinho + "\n";
     }
 
 }

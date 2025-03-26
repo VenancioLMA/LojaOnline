@@ -33,26 +33,12 @@ public class Main {
         // estoque envia o item
 
 
-        // Criamos uma instância da classe ModeloLivro, representando um livro no sistema
-        Date date = new Date(121, 6, 22); // Data fixa para exemplo
-        ModeloLivro modeloLivro = new ModeloLivro(7, "Verity", date);
+        // Classe compra
+        // ela vai ter o carrinho do cliente dentro dela,
+        // o cliente,
+        // o metodo de pagamento,
+        // se o metodo de pagamento for false (invalido),
+        // ele cancela a compra
 
-        // Criamos o repositório responsável pelo armazenamento dos livros
-        ModeloLivroRepositorio modeloLivroRepositorio = new ModeloLivroRepositorio();
-
-        // Adicionamos o livro ao repositório
-        modeloLivroRepositorio.AdicionarRepo(modeloLivro);
-
-        // Criamos um serviço para intermediar a comunicação entre a aplicação e o repositório
-        ModeloLivroService modeloLivroService = new ModeloLivroService(modeloLivroRepositorio);
-
-        // Cadastramos um novo livro através do serviço
-        modeloLivroService.CadastrarLivro(8, "O Jogo", date);
-
-        // Exibimos todos os livros cadastrados no sistema
-        System.out.println(modeloLivroService.ListarTodosItens());
-
-        // Exibimos um livro específico pelo seu ID
-        System.out.println(modeloLivroService.ListarItemPorId(8));
     }
 }
