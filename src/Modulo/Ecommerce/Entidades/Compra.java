@@ -1,9 +1,10 @@
 package Modulo.Ecommerce.Entidades;
 
-
 import Modulo.Ecommerce.Serviços.ServicoPagamento;
+import Modulo.Ecommerce.Entidades.Carrinho;
 
 public class Compra {
+
     private ClienteCad cliente;
     private Carrinho carrinho;
     private ServicoPagamento.MetodoPagamento metodoPagamento;
@@ -42,16 +43,30 @@ public class Compra {
     public void setMetodoPagamento(ServicoPagamento.MetodoPagamento metodoPagamento) {
         this.metodoPagamento = metodoPagamento;
 
-        if (compra == false){
-            System.out.println("Compra Cancelada");
-
+        if (metodoPagamento == null) {
+            this.compra = false;
+            System.out.println("Compra Cancelada: Método de pagamento inválido.");
         }
-
     }
 
+    public ServicoPagamento.MetodoPagamento getMetodoPagamento() {
+        return metodoPagamento;
+    }
 
+    public boolean temItensNoCarrinho() {
+        return carrinho != null && !carrinho.items.isEmpty();
+    }
 
-
-
-
+    public void finalizarCompra() {
+        if (!temItensNoCarrinho()) {
+            System.out.println("Compra não pode ser finalizada: Carrinho vazio.");
+            this.compra = false;
+        } else if (metodoPagamento == null) {
+            System.out.println("Compra não pode ser finalizada: Método de pagamento não selecionado.");
+            this.compra = false;
+        } else {
+            this.compra = true;
+            System.out.println("Compra finalizada com sucesso!");
+        }
+    }
 }
