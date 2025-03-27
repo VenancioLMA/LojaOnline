@@ -5,6 +5,7 @@ import Modulo.Ecommerce.Entidades.Carrinho;
 
 public class Compra {
 
+    private int id;
     private ClienteCad cliente;
     private Carrinho carrinho;
     private ServicoPagamento.MetodoPagamento metodoPagamento;
@@ -14,6 +15,14 @@ public class Compra {
         this.compra = compra;
         this.cliente = cliente;
         this.carrinho = carrinho;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setCompra(boolean compra) {
