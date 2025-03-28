@@ -9,6 +9,7 @@ import java.util.List;
 
 public class ServicoCompra {
 
+    public Compra c;
     private CompraRepositorio compraRepositorio;
 
     public ServicoCompra(CompraRepositorio compraRepositorio) {

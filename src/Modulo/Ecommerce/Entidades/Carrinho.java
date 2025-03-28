@@ -6,12 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Carrinho {
-    int id;
-    String descricao;
-
-    List<Item> items = new ArrayList<Item>();
+    private List<Item> items = new ArrayList<>();
 
     public void adicionarItem(Item item) {
         items.add(item);
+    }
+
+    public List<Item> getItems() {
+        return items;
     }
 }
