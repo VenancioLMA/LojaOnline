@@ -1,10 +1,11 @@
 package Modulo.Ecommerce.Repositorios;
 
+import Modulo.Commons.Interfaces.IRepository;
 import Modulo.Ecommerce.Entidades.Compra;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CompraRepositorio {
+public class CompraRepositorio implements IRepository {
 
     private List<Compra> compras = new ArrayList<>();
     private int proximoId = 1;
@@ -44,5 +45,30 @@ public class CompraRepositorio {
                 break;
             }
         }
+    }
+
+    @Override
+    public Object AdicionarRepo(Object i) {
+        return null;
+    }
+
+    @Override
+    public boolean RemoverRepo(int id) {
+        return false;
+    }
+
+    @Override
+    public Object AtualizarRepo(int id, Object key, Object newValue) {
+        return null;
+    }
+
+    @Override
+    public Object ListarPorIdRepo(int id) {
+        return null;
+    }
+
+    @Override
+    public List ListarTodosRepo() {
+        return List.of();
     }
 }

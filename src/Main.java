@@ -80,7 +80,7 @@ public class Main {
                 metodoPagamento = ServicoPagamento.MetodoPagamento.Pix;
                 break;
             default:
-                System.out.println("Forma de pagamento inválida.");
+                System.out.println("Forma de pagamento inválida!");
                 return;
         }
 

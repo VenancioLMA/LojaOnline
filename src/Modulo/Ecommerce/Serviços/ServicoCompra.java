@@ -1,5 +1,6 @@
 package Modulo.Ecommerce.Serviços;
 
+import Modulo.Commons.Interfaces.IService;
 import Modulo.Ecommerce.Entidades.Compra;
 import Modulo.Ecommerce.Entidades.ClienteCad;
 import Modulo.Ecommerce.Entidades.Carrinho;
@@ -7,7 +8,7 @@ import Modulo.Ecommerce.Repositorios.CompraRepositorio;
 
 import java.util.List;
 
-public class ServicoCompra {
+public class ServicoCompra implements IService {
 
     public Compra c;
     private CompraRepositorio compraRepositorio;
@@ -54,5 +55,30 @@ public class ServicoCompra {
         if (compra != null) {
             compraRepositorio.removerCompra(compra);
         }
+    }
+
+    @Override
+    public void Adicionar(Object i) {
+
+    }
+
+    @Override
+    public void Remover(int id) throws Exception {
+
+    }
+
+    @Override
+    public void Alterar(int id, Object chave, Object novoValor) {
+
+    }
+
+    @Override
+    public List ListarTodos() {
+        return List.of();
+    }
+
+    @Override
+    public Object ListarPorId(int id) throws Exception {
+        return null;
     }
 }

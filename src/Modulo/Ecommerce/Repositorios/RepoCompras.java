@@ -1,13 +1,15 @@
 package Modulo.Ecommerce.Repositorios;
 
 import Modulo.Commons.Interfaces.IRepository;
-import Modulo.Ecommerce.Serviços.ServicoCompras;
+import Modulo.Ecommerce.Serviços.ServicoCompra;
+
 
 import java.util.List;
 
-public class RepoCompras implements IRepository<ServicoCompras> {
+public class RepoCompras implements IRepository<ServicoCompra> {
+
     @Override
-    public ServicoCompras AdicionarRepo(ServicoCompras i) {
+    public ServicoCompra AdicionarRepo(ServicoCompra i) {
         return null;
     }
 
@@ -17,17 +19,17 @@ public class RepoCompras implements IRepository<ServicoCompras> {
     }
 
     @Override
-    public ServicoCompras AtualizarRepo(int id, Object key, Object newValue) {
+    public ServicoCompra AtualizarRepo(int id, Object key, Object newValue) {
         return null;
     }
 
     @Override
-    public ServicoCompras ListarPorIdRepo(int id) {
+    public ServicoCompra ListarPorIdRepo(int id) {
         return null;
     }
 
     @Override
-    public List<ServicoCompras> ListarTodosRepo() {
+    public List<ServicoCompra> ListarTodosRepo() {
         return List.of();
     }
 }
