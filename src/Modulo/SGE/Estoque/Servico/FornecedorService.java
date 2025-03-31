@@ -2,7 +2,7 @@ package Modulo.SGE.Estoque.Servico;
 
 import Modulo.Commons.Endereco;
 import Modulo.Commons.Interfaces.IService;
-import Modulo.SGE.Estoque.Entity.Estoque;
+import Modulo.Entrega.EntregaModel;
 import Modulo.SGE.Estoque.Entity.Fornecedor;
 import Modulo.SGE.Estoque.Repository.FornecedorRepo;
 
@@ -21,15 +21,17 @@ public class FornecedorService implements IService<Fornecedor> {
     }
 
     @Override
-    public void Remover(int id) throws Exception {
+    public boolean Remover(int id) throws Exception {
         if (!repo.RemoverRepo(id)) {
             throw new Exception("Fornecedor não encontrado");
         }
+        return false;
     }
 
     @Override
-    public void Alterar(int id, Object chave, Object novoValor) {
+    public EntregaModel Alterar(int id, Object chave, Object novoValor) {
         repo.AtualizarRepo(id, chave, novoValor);
+        return null;
     }
 
     @Override

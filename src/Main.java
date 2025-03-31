@@ -13,14 +13,17 @@ import Modulo.Utils.Funcs;
 import java.util.List;
 import java.util.Scanner;
 
+import static Modulo.Utils.Funcs.geraIDAleatorio;
+import static Modulo.View.SGETela.*;
+
 public class Main {
 
     public static void main(String[] args) {
-        Sistema.iniciar();
+        animarTexto("Sistema de E-commerce iniciado.", 80);
 
         EstoqueService estoqueService = new EstoqueService(Funcs.gerarEstoqueAleatorio(5));
 
-        System.out.println("Itens disponíveis no estoque:");
+        animarTexto("Itens disponíveis no estoque:", 80);
         List<Item> itensEstoque = estoqueService.ListarTodosItemsDentroDoEstoque();
         itensEstoque.forEach(System.out::println);
 
@@ -41,32 +44,43 @@ public class Main {
             }
         }
 
-        System.out.println("\n--- Cadastro do Cliente ---");
-        sc.nextLine(); // Limpar o buffer do scanner
-        System.out.print("Nome: ");
-        String nome = sc.nextLine();
-        System.out.print("CPF: ");
-        String cpf = sc.nextLine();
-        System.out.print("Data de Nascimento (dd/MM/yyyy): ");
-        String dataNascimento = sc.nextLine();
-        System.out.print("Sexo (Masculino/Feminino): ");
-        String sexo = sc.nextLine();
-        System.out.print("Telefone: ");
-        String telefone = sc.nextLine();
-        System.out.print("Email: ");
-        String email = sc.nextLine();
-        System.out.print("Endereço (Rua, Número, CEP): ");
-        String endereco = sc.nextLine();
+        limparTela();
 
-        ClienteCad cliente = new ClienteCad(1, nome, cpf, dataNascimento, sexo, telefone, endereco, email);
+        animarTexto("\n--- Cadastro do Cliente ---", 80);
+        sc.nextLine(); // Limpar o buffer do scanner
+        animarTexto("Nome: ", 70);
+        String nome = sc.nextLine();
+        animarTexto("CPF: ", 70);
+        String cpf = sc.nextLine();
+        animarTexto("Data de Nascimento (dd/MM/yyyy): ", 70);
+        String dataNascimento = sc.nextLine();
+        animarTexto("Sexo (Masculino/Feminino): ", 70);
+        String sexo = sc.nextLine();
+        animarTexto("Telefone: ", 70);
+        String telefone = sc.nextLine();
+        animarTexto("Email: ", 70);
+        String email = sc.nextLine();
+        animarTexto("Endereço (Rua): ", 70);
+        String rua = sc.nextLine();
+        animarTexto("Endereço (Num): ", 70);
+        String num = sc.nextLine();
+        animarTexto("Endereço (CEP): ", 70);
+        String cep = sc.nextLine();
+
+        Endereco endereco = new Endereco(rua, num, cep);
+
+        ClienteCad cliente = new ClienteCad(geraIDAleatorio(), nome, cpf, dataNascimento, sexo, telefone, endereco, email);
         cliente.setCarrinho(carrinho);
 
         RepositorioCliente repositorioCliente = new RepositorioCliente();
         repositorioCliente.AdicionarRepo(cliente);
-        System.out.println("\nCliente cadastrado com suscesso");
+        animarTexto("\nCliente cadastrado com suscesso", 70);
 
+        pausar(25);
+
+        limparTela();
         // Usuário escolhe a forma de pagamento
-        System.out.println("\nEscolha a forma de pagamento (1 - Cartão, 2 - Boleto, 3 - Pix):");
+        animarTexto("\nEscolha a forma de pagamento (1 - Cartão, 2 - Boleto, 3 - Pix):", 40);
         int formaPagamento = sc.nextInt();
         ServicoPagamento.MetodoPagamento metodoPagamento = null;
         switch (formaPagamento) {
@@ -79,27 +93,20 @@ public class Main {
             case 3:
                 metodoPagamento = ServicoPagamento.MetodoPagamento.Pix;
                 break;
-            default:
-                System.out.println("Forma de pagamento inválida!");
-                return;
         }
+
+        exibirTextoComAnimacao("Concluindo pagamento", 5000);
 
         CompraRepositorio compraRepositorio = new CompraRepositorio();
         ServicoCompra servicoCompra = new ServicoCompra(compraRepositorio);
         Compra compra = servicoCompra.criarCompra(cliente, carrinho);
 
         boolean compraFinalizada = servicoCompra.finalizarCompra(compra.getId(), metodoPagamento);
+
         if (compraFinalizada) {
             System.out.println("Compra finalizada com sucesso!");
 
             System.out.println("\nEnviando compra para o estoque...");
-            for (Item item : carrinho.getItems()) {
-                try {
-                    estoqueService.Remover(item.getId()); // Remove o item do estoque
-                } catch (Exception e) {
-                    System.out.println("Erro ao remover item do estoque: " + e.getMessage());
-                }
-            }
 
             System.out.println("Estoque confirmou o recebimento da compra.");
 
@@ -120,11 +127,5 @@ public class Main {
         }
 
         System.out.println("\nObrigado por comprar conosco!");
-    }
-}
-
-class Sistema {
-    public static void iniciar() {
-        System.out.println("Sistema de E-commerce iniciado.");
     }
 }

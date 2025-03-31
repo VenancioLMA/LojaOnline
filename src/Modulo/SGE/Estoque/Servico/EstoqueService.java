@@ -1,6 +1,7 @@
 package Modulo.SGE.Estoque.Servico;
 
 import Modulo.Commons.Interfaces.IService;
+import Modulo.Entrega.EntregaModel;
 import Modulo.SGE.Estoque.Entity.Estoque;
 import Modulo.SGE.Estoque.Entity.Item;
 import Modulo.SGE.Estoque.Repository.EstoqueRepo;
@@ -21,15 +22,17 @@ public class EstoqueService implements IService<Estoque> {
     }
 
     @Override
-    public void Remover(int id) throws Exception {
+    public boolean Remover(int id) throws Exception {
         if (!repo.RemoverRepo(id)) {
             throw new Exception("Estoque não encontrado");
         }
+        return false;
     }
 
     @Override
-    public void Alterar(int id, Object chave, Object novoValor) {
+    public EntregaModel Alterar(int id, Object chave, Object novoValor) {
         repo.AtualizarRepo(id, chave, novoValor);
+        return null;
     }
 
     @Override

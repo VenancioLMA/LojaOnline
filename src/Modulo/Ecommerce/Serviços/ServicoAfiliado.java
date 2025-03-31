@@ -1,8 +1,8 @@
 
 
 import Modulo.Commons.Interfaces.IService;
+import Modulo.Entrega.EntregaModel;
 
-import java.io.Serializable;
 import java.util.List;
 
 public class ServicoAfiliado implements IService{
@@ -12,13 +12,15 @@ public class ServicoAfiliado implements IService{
     }
 
     @Override
-    public void Remover(int id) throws Exception {
+    public boolean Remover(int id) throws Exception {
 
+        return false;
     }
 
     @Override
-    public void Alterar(int id, Object chave, Object novoValor) {
+    public EntregaModel Alterar(int id, Object chave, Object novoValor) {
 
+        return null;
     }
 
     @Override

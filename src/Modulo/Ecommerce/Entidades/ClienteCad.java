@@ -1,26 +1,26 @@
 package Modulo.Ecommerce.Entidades;
 
+import Modulo.Commons.Endereco;
+
 public class ClienteCad {
-    int idCliente;
-    String nome;
-    String cpf;
-    String dataNascimento;
-    String sexo;
-    String telefone;
-    String enderecos;
-    String email;
-    Carrinho carrinho;
-    //não entendi o bagulho da senha, ajuda ai Arlei
+    private int idCliente;
+    private String nome;
+    private String cpf;
+    private String dataNascimento;
+    private String sexo;
+    private String telefone;
+    private Endereco endereco;
+    private String email;
+    private Carrinho carrinho;
 
-
-    public ClienteCad(int idCliente, String nome, String cpf, String dataNascimento, String sexo, String telefone, String enderecos, String email) {
+    public ClienteCad(int idCliente, String nome, String cpf, String dataNascimento, String sexo, String telefone, Endereco endereco, String email) {
         this.idCliente = idCliente;
         this.nome = nome;
         this.cpf = cpf;
         this.dataNascimento = dataNascimento;
         this.sexo = sexo;
         this.telefone = telefone;
-        this.enderecos = enderecos;
+        this.endereco = endereco;
         this.email = email;
     }
 
@@ -80,12 +80,12 @@ public class ClienteCad {
         this.email = email;
     }
 
-    public String getEnderecos() {
-        return enderecos;
+    public Endereco getEndereco() {
+        return endereco;
     }
 
-    public void setEnderecos(String enderecos) {
-        this.enderecos = enderecos;
+    public void setEndereco(Endereco enderecos) {
+        this.endereco = enderecos;
     }
 
     public Carrinho getCarrinho() {

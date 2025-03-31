@@ -63,7 +63,7 @@ public class Compra {
     }
 
     public boolean temItensNoCarrinho() {
-        return carrinho != null && !carrinho.items.isEmpty();
+        return carrinho != null && !carrinho.getItems().isEmpty();
     }
 
     public void finalizarCompra() {

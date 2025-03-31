@@ -5,6 +5,7 @@ import Modulo.Ecommerce.Entidades.Compra;
 import Modulo.Ecommerce.Entidades.ClienteCad;
 import Modulo.Ecommerce.Entidades.Carrinho;
 import Modulo.Ecommerce.Repositorios.CompraRepositorio;
+import Modulo.Entrega.EntregaModel;
 
 import java.util.List;
 
@@ -63,13 +64,15 @@ public class ServicoCompra implements IService {
     }
 
     @Override
-    public void Remover(int id) throws Exception {
+    public boolean Remover(int id) throws Exception {
 
+        return false;
     }
 
     @Override
-    public void Alterar(int id, Object chave, Object novoValor) {
+    public EntregaModel Alterar(int id, Object chave, Object novoValor) {
 
+        return null;
     }
 
     @Override

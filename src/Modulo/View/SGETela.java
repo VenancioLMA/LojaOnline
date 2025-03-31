@@ -35,15 +35,11 @@ public class SGETela implements Tela {
         } while (opcao != 0);
     }
 
-    private void limparTela() {
-//        Runtime.getRuntime().exec("cls");
-//        ProcessBuilder pb = new ProcessBuilder("cmd", "/c", "cls");
-//            Process startProcess = pb.inheritIO().start();
-//            startProcess.waitFor();
+    public static void limparTela() {
         for (int i = 0; i < 25; i++) System.out.println();
     }
 
-    private void animarTexto(String texto, int delay) {
+    public static void animarTexto(String texto, int delay) {
         for (char c : texto.toCharArray()) {
             System.out.print(c);
             try {
@@ -55,11 +51,39 @@ public class SGETela implements Tela {
         System.out.println();
     }
 
-    private void pausar(int tempoMs) {
+    public static void pausar(int tempoMs) {
         try {
             Thread.sleep(tempoMs);
         } catch (InterruptedException e) {
             e.printStackTrace();
+        }
+    }
+
+    public static void exibirTextoComAnimacao(String texto, int tempoEmMs) {
+
+        Thread animacaoThread = new Thread(() -> {
+            long tempoFinal = System.currentTimeMillis() + tempoEmMs;
+            StringBuilder pontos = new StringBuilder();
+            while (System.currentTimeMillis() < tempoFinal) {
+                System.out.print("\r" + texto + pontos.toString());
+                if (pontos.length() < 3) {
+                    pontos.append(".");
+                } else {
+                    pontos.setLength(0);
+                }
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                }
+            }
+            System.out.print("\r" + texto + "   \n");
+        });
+        animacaoThread.start();
+        try {
+            animacaoThread.join();
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
         }
     }
 
