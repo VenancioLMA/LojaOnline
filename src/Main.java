@@ -6,9 +6,17 @@ import Modulo.Ecommerce.Repositorios.CompraRepositorio;
 import Modulo.Ecommerce.Repositorios.RepositorioCliente;
 import Modulo.Ecommerce.Serviços.ServicoCompra;
 import Modulo.Ecommerce.Serviços.ServicoPagamento;
+import Modulo.Entrega.EntregaService;
+import Modulo.Entrega.StatusEntrega;
 import Modulo.SGE.Estoque.Entity.Item;
 import Modulo.SGE.Estoque.Servico.EstoqueService;
+import Modulo.SGE.Funcionarios.Entidades.Entregador;
 import Modulo.Utils.Funcs;
+
+//
+import Modulo.SGE.Funcionarios.Enum.Sexo;
+import java.text.ParseException;
+//
 
 import java.util.List;
 import java.util.Scanner;
@@ -127,5 +135,45 @@ public class Main {
         }
 
         System.out.println("\nObrigado por comprar conosco!");
+
+
+        EntregaService entregaService = new EntregaService();
+
+        try {
+            Entregador entregador = new Entregador(
+                    1, // ID do entregador
+                    "João Silva", // Nome do entregador
+                    "joao.silva@entregador.com", // Email do entregador
+                    Sexo.Masculino, // Sexo do entregador
+                    "123.456.789-00", // CPF do entregador
+                    "01/01/1990", // Data de nascimento do entregador
+                    2500 // Salário do entregador
+            );
+
+            int idEntrega = geraIDAleatorio();
+            entregaService.criarEntrega(idEntrega, cliente, cliente.getEndereco(), StatusEntrega.EmRota, entregador);
+
+            System.out.println("\n--- Processando Entrega ---");
+            while (!carrinho.getItems().isEmpty()) {
+                Item item = carrinho.getItems().get(0);
+                System.out.println("Entregando item: " + item.getDescricao());
+                carrinho.getItems().remove(0);
+                pausar(1000);
+            }
+
+            entregaService.atualizarStatus(idEntrega, StatusEntrega.Finalizada);
+            System.out.println("Entrega finalizada com sucesso!");
+
+            // Exibe os detalhes da entrega
+            System.out.println("\n--- Detalhes da Entrega ---");
+            System.out.println("ID da Entrega: " + idEntrega);
+            System.out.println("Cliente: " + cliente.getNome());
+            System.out.println("Endereço: " + cliente.getEndereco().toString());
+            System.out.println("Entregador: " + entregador.getNome());
+            System.out.println("Status: " + StatusEntrega.Finalizada);
+
+        } catch (ParseException e) {
+            System.out.println("Erro ao criar o entregador: " + e.getMessage());
+        }
     }
 }
