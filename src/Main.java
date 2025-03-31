@@ -12,11 +12,8 @@ import Modulo.SGE.Estoque.Entity.Item;
 import Modulo.SGE.Estoque.Servico.EstoqueService;
 import Modulo.SGE.Funcionarios.Entidades.Entregador;
 import Modulo.Utils.Funcs;
-
-//
 import Modulo.SGE.Funcionarios.Enum.Sexo;
 import java.text.ParseException;
-//
 
 import java.util.List;
 import java.util.Scanner;
